@@ -37,11 +37,9 @@ namespace LinqPractice
                     "73,88,83,99,64",
                     "98,100,66,74,55"
             };
-            var thing = Array.ConvertAll(grades[0].Split(','), int.Parse);
-            var AvgNoMin = thing.Where(g => g != thing.Min()).Average();
-            var intGrades = grades.Select(g => (Array.ConvertAll(g.Split(','), int.Parse)).Where(x => x!=g.Min()).Average());                                          
-
-           
+            var intGrades = grades.Select(g => (Array.ConvertAll(g.Split(','), int.Parse)));
+            var AvgNoMinGrades = intGrades.Select(g => g.Where(x => g.Min() != x).Average()).Average();
+            Console.WriteLine(AvgNoMinGrades);
             Console.ReadLine();
 
         }
