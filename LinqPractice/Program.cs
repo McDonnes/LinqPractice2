@@ -42,6 +42,19 @@ namespace LinqPractice
             Console.WriteLine(AvgNoMinGrades);
             Console.ReadLine();
 
+
+            //Linq Problem 4
+            String word = "Spinney";
+            var condense = (word.ToUpper().ToCharArray()).GroupBy(p => p).ToDictionary(g => g.Key, g => g.Count()).OrderBy(g => g.Key);
+            foreach (KeyValuePair<char, int> x in condense)
+            {
+                var temp = x.Key;
+                Console.Write(temp);
+                int temp2 = x.Value;
+                Console.Write(temp2);
+            }
+            Console.ReadLine();
+
         }
     }
 }
